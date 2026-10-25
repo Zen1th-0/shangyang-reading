@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>三史读商君 · 对照阅读学习成果</title>
-<meta name="description" content="《史记》《汉书》《资治通鉴》三部史书中商鞅部分之对照阅读：选材之异、立场之异、讲法之异。">
+<title>三史读商君 · 商鞅变法三文本对读</title>
+<meta name="description" content="《史记·商君列传》《汉书·食货志》《资治通鉴》中商鞅变法记载的三列对读：原文摘录、引导思考问题与我的判断。">
 <style>
 :root{
   --paper:#f3ecdb;
@@ -178,6 +178,7 @@ body{
   line-height:2.2;letter-spacing:.06em;
 }
 .yuanqi .shiyue .who{color:var(--cinnabar);font-weight:700}
+.yuanqi .shiyue b{color:var(--cinnabar);font-weight:700}
 .yuanqi p.explain{margin-top:18px;font-size:15px;color:var(--ink-soft)}
 .yuanqi .tasks{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
 .yuanqi .task{
@@ -199,12 +200,12 @@ body{
   overflow:hidden;
 }
 .book:hover{transform:translateY(-7px);box-shadow:0 16px 34px rgba(80,60,30,.2)}
-.book::before{ /* 竹简竖纹 */
+.book::before{
   content:"";position:absolute;left:0;top:0;bottom:0;width:16px;
   background:repeating-linear-gradient(180deg,#7d5f36 0 9px,#a68450 9px 12px);
   opacity:.85;
 }
-.book::after{ /* 编绳 */
+.book::after{
   content:"";position:absolute;left:16px;right:0;top:18px;height:2px;
   background:rgba(90,64,32,.25);
 }
@@ -216,116 +217,161 @@ body{
 .books-note{margin-top:24px;font-size:15px;color:var(--ink-soft);text-align:center;font-family:var(--font-kai);letter-spacing:.12em}
 .books-note b{color:var(--cinnabar)}
 
-/* ---------- 卷叁 发现 ---------- */
-.finding{margin-bottom:64px}
-.finding-head{display:flex;align-items:baseline;gap:16px;margin-bottom:24px;flex-wrap:wrap}
-.finding-no{
-  font-family:var(--font-kai);font-size:15px;color:#f6efdd;background:var(--cinnabar);
-  padding:2px 12px;border-radius:2px;letter-spacing:.2em;flex:none;
+/* ---------- 卷叁 三列对读 ---------- */
+.duilv-intro{
+  font-size:15.5px;color:var(--ink-soft);
+  margin-bottom:26px;line-height:2;
 }
-.finding-title{font-size:clamp(21px,2.8vw,27px);font-weight:700;letter-spacing:.1em}
-.finding-sub{font-size:14px;color:var(--ink-soft);letter-spacing:.08em}
-.finding-body{display:grid;gap:18px}
-
-.tribox{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.tribox .cell{
-  background:rgba(255,251,240,.75);
-  border:1px solid rgba(120,100,70,.32);
-  border-top:3px solid var(--indigo);
-  border-radius:3px;padding:22px 20px;
+.duilv-intro b{color:var(--cinnabar)}
+.duilv{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  align-items:stretch;
 }
-.tribox .cell.shi{border-top-color:var(--cinnabar)}
-.tribox .cell.han{border-top-color:var(--gold)}
-.tribox .cell.tong{border-top-color:var(--indigo)}
-.tribox .cell h4{font-size:17px;letter-spacing:.08em;margin-bottom:10px}
-.tribox .cell h4 span{font-size:12.5px;color:var(--ink-soft);font-weight:400;margin-left:8px;letter-spacing:.15em}
-.tribox .cell p{font-size:14.5px;color:var(--ink-soft)}
-.tribox .cell p b{color:var(--ink)}
-
-.xiaojie{
-  margin-top:20px;
+.lv{
+  display:flex;flex-direction:column;
+  background:rgba(255,251,240,.82);
+  border:1px solid rgba(120,100,70,.35);
+  border-radius:3px;
+  box-shadow:0 8px 20px rgba(80,60,30,.12);
+  overflow:hidden;
+}
+.lv-src{
+  padding:14px 18px 12px;
+  border-bottom:1px dashed rgba(120,100,70,.4);
+  background:rgba(61,85,90,.06);
+}
+.lv.shi .lv-src{box-shadow:inset 0 3px 0 var(--cinnabar)}
+.lv.han .lv-src{box-shadow:inset 0 3px 0 var(--gold)}
+.lv.tong .lv-src{box-shadow:inset 0 3px 0 var(--indigo)}
+.lv-src h4{font-size:18px;letter-spacing:.04em}
+.lv-src .src-detail{font-size:12.5px;color:var(--gold);letter-spacing:.12em;margin-top:2px}
+.yuanwen{
   font-family:var(--font-kai);
-  font-size:clamp(17px,2.2vw,20px);
-  letter-spacing:.1em;
-  padding:16px 22px;
-  border-left:3px solid var(--cinnabar);
-  background:linear-gradient(90deg,rgba(156,53,36,.07),transparent 75%);
+  font-size:15.5px;
+  line-height:2.15;
+  letter-spacing:.03em;
+  padding:20px 20px 16px;
   color:var(--ink);
+  flex:1;
 }
-.xiaojie b{color:var(--cinnabar)}
-
-table.duizhao{
-  width:100%;border-collapse:collapse;font-size:14.5px;
-  background:rgba(255,251,240,.8);
-  box-shadow:0 6px 18px rgba(80,60,30,.1);
+.yuanwen .zhu{color:var(--cinnabar);font-weight:700}
+.yuanwen .ellip{color:var(--gold);letter-spacing:.2em}
+.lv-note{
+  padding:0 20px 12px;
+  font-size:12.5px;color:var(--ink-soft);
 }
-table.duizhao th,table.duizhao td{
-  border:1px solid rgba(120,100,70,.32);
-  padding:12px 14px;text-align:left;vertical-align:top;line-height:1.8;
+.lv-note b{color:var(--gold)}
+.wenti{
+  border-top:1px dashed rgba(120,100,70,.4);
+  padding:16px 20px 20px;
+  background:linear-gradient(180deg,rgba(61,85,90,.05),transparent);
 }
-table.duizhao th{
-  background:rgba(61,85,90,.1);
-  font-family:var(--font-kai);font-size:16px;letter-spacing:.1em;color:var(--indigo);
-  white-space:nowrap;
-}
-table.duizhao td:first-child{font-family:var(--font-kai);color:var(--cinnabar);white-space:nowrap;letter-spacing:.06em}
-table.duizhao td b{color:var(--ink)}
-.table-wrap{overflow-x:auto}
-
-.quote{
-  position:relative;
-  font-family:var(--font-kai);
-  background:rgba(255,251,240,.75);
-  border:1px solid rgba(120,100,70,.3);
-  border-left:none;border-right:none;
-  padding:22px 56px;
-  margin:22px 0;
-  text-align:center;
-}
-.quote::before,.quote::after{
-  content:"";position:absolute;top:0;bottom:0;width:3px;
-  background:repeating-linear-gradient(180deg,var(--cinnabar) 0 10px,transparent 10px 16px);
-  opacity:.55;
-}
-.quote::before{left:14px}
-.quote::after{right:14px}
-.quote p{font-size:clamp(17px,2.1vw,21px);letter-spacing:.1em;line-height:2.1}
-.quote .src{display:block;margin-top:10px;font-size:13px;color:var(--gold);letter-spacing:.2em}
-
-.pizhu{
+.wenti .wt-tag{
   display:inline-block;
   font-family:var(--font-kai);
-  color:var(--cinnabar);
-  border:1.5px solid rgba(156,53,36,.55);
+  font-size:13px;color:#f6efdd;background:var(--indigo);
+  padding:1px 10px;border-radius:2px;letter-spacing:.3em;
+  margin-bottom:10px;
+}
+.wenti ol{list-style:none;counter-reset:wt}
+.wenti li{
+  counter-increment:wt;
+  font-size:14.5px;color:var(--ink-soft);
+  line-height:1.95;
+  padding-left:2em;
+  position:relative;
+  margin-bottom:8px;
+}
+.wenti li:last-child{margin-bottom:0}
+.wenti li::before{
+  content:counter(wt,cjk-ideographic);
+  position:absolute;left:0;top:0;
+  font-family:var(--font-kai);
+  color:var(--cinnabar);font-weight:700;
+}
+.duilv-key{
+  margin-top:26px;
+  font-family:var(--font-kai);
+  font-size:16px;letter-spacing:.1em;
+  text-align:center;color:var(--ink-soft);
+}
+.duilv-key b{color:var(--cinnabar)}
+
+/* ---------- 卷肆 我的判断 ---------- */
+.panduan-wrap{
+  position:relative;
+  background:linear-gradient(150deg,#fdf9ee,#f1e7cf);
+  border:1px solid rgba(120,100,70,.4);
   border-radius:4px;
-  padding:1px 8px;
-  font-size:13px;
-  letter-spacing:.15em;
-  transform:rotate(-2deg);
-  margin-left:8px;
-  vertical-align:middle;
-  white-space:nowrap;
+  padding:52px 54px 44px;
+  box-shadow:0 12px 32px rgba(80,60,30,.15);
+}
+.panduan-wrap::before{
+  content:"我的判断";position:absolute;top:-16px;left:34px;
+  background:var(--cinnabar);color:#f6efdd;
+  font-family:var(--font-kai);letter-spacing:.35em;font-size:15px;
+  padding:5px 14px 5px 17px;border-radius:2px;
+  box-shadow:0 3px 8px rgba(126,42,29,.3);
+}
+.panduan-wrap::after{
+  content:"批";position:absolute;top:26px;right:34px;
+  font-family:var(--font-kai);
+  color:var(--cinnabar);
+  border:2px solid rgba(156,53,36,.65);
+  border-radius:6px;
+  width:38px;height:38px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:19px;font-weight:700;
+  transform:rotate(6deg);
+  opacity:.85;
+}
+.panduan-text{
+  font-family:var(--font-kai);
+  font-size:clamp(17px,2.2vw,20.5px);
+  line-height:2.35;
+  letter-spacing:.05em;
+}
+.panduan-text .u{color:var(--cinnabar);font-weight:700;border-bottom:1px dotted rgba(156,53,36,.5)}
+.panduan-aside{
+  margin-top:20px;padding-top:14px;
+  border-top:1px dashed rgba(120,100,70,.4);
+  font-size:13px;color:var(--ink-soft);line-height:2;
 }
 
-/* ---------- 卷肆 方法 ---------- */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+/* ---------- 卷伍 延伸发现 ---------- */
+.findings-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.fmini{
+  background:rgba(255,251,240,.75);
+  border:1px solid rgba(120,100,70,.32);
+  border-top:3px solid var(--cinnabar);
+  border-radius:3px;padding:22px 20px;
+}
+.fmini:nth-child(2){border-top-color:var(--gold)}
+.fmini:nth-child(3){border-top-color:var(--indigo)}
+.fmini h4{font-size:16.5px;letter-spacing:.06em;margin-bottom:8px}
+.fmini h4 span{font-size:12px;color:var(--cinnabar);border:1px solid rgba(156,53,36,.5);border-radius:3px;padding:0 6px;margin-right:8px;font-family:var(--font-kai)}
+.fmini p{font-size:13.5px;color:var(--ink-soft);line-height:1.95}
+.fmini p b{color:var(--ink)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
 .step{
   position:relative;
   background:rgba(255,251,240,.75);
   border:1px solid rgba(120,100,70,.32);
-  border-radius:3px;padding:28px 22px 22px;
+  border-radius:3px;padding:26px 20px 18px;
   box-shadow:0 6px 16px rgba(80,60,30,.1);
 }
 .step .num{
   position:absolute;top:-16px;left:20px;
-  width:34px;height:34px;border-radius:50%;
+  width:32px;height:32px;border-radius:50%;
   background:var(--indigo);color:#f6efdd;
   display:flex;align-items:center;justify-content:center;
-  font-family:var(--font-kai);font-size:17px;
+  font-family:var(--font-kai);font-size:16px;
   box-shadow:0 4px 10px rgba(61,85,90,.35);
 }
-.step h4{font-size:18px;letter-spacing:.12em;margin-bottom:8px;margin-top:6px}
-.step p{font-size:14px;color:var(--ink-soft)}
+.step h4{font-size:16.5px;letter-spacing:.12em;margin-bottom:6px;margin-top:4px}
+.step p{font-size:13.5px;color:var(--ink-soft)}
 
 /* ---------- 卷末 ---------- */
 .jinju{
@@ -343,7 +389,7 @@ table.duizhao td b{color:var(--ink)}
   margin-top:16px;font-size:15px;color:var(--ink-soft);letter-spacing:.25em;
 }
 .verify{
-  margin:36px auto 0;max-width:640px;
+  margin:36px auto 0;max-width:680px;
   font-size:13.5px;color:var(--ink-soft);
   border:1px dashed rgba(120,100,70,.5);
   border-radius:4px;padding:14px 20px;
@@ -351,7 +397,7 @@ table.duizhao td b{color:var(--ink)}
 }
 .verify b{color:var(--cinnabar)}
 .refs{
-  margin:44px auto 0;max-width:640px;
+  margin:44px auto 0;max-width:680px;
   font-size:13px;color:var(--ink-soft);
   text-align:left;line-height:2.1;
   border-top:1px solid rgba(120,100,70,.3);padding-top:18px;
@@ -367,12 +413,13 @@ footer .fseal{color:var(--cinnabar);font-family:var(--font-kai);letter-spacing:.
 
 /* ---------- 响应式 ---------- */
 @media (max-width:880px){
-  .books-grid,.tribox,.steps{grid-template-columns:1fr}
+  .books-grid,.findings-mini,.steps{grid-template-columns:1fr}
+  .duilv{grid-template-columns:1fr}
   .hero{min-height:78vh}
   .hero-inner{flex-direction:column-reverse;align-items:flex-start;justify-content:flex-end;gap:30px;padding:10vh 0 20vh}
   .hero-title{writing-mode:horizontal-tb;font-size:clamp(40px,11vw,60px);letter-spacing:.18em;line-height:1.3}
-  .quote{padding:20px 30px}
   .yuanqi{padding:38px 24px 30px}
+  .panduan-wrap{padding:46px 24px 34px}
 }
 </style>
 </head>
@@ -391,11 +438,11 @@ footer .fseal{color:var(--cinnabar);font-family:var(--font-kai);letter-spacing:.
   </svg>
   <div class="hero-inner">
     <div class="hero-side">
-      <div class="hero-kicker">对 照 阅 读 · 学 习 成 果</div>
-      <p class="hero-sub">同一位改革者，三部史书，<b>三种讲法</b>。<br>当我把《史记》《汉书》《资治通鉴》里写商鞅的部分并排放在一起读，<b>同一故事得出了完全不同的结论</b>——这份网页，记录我寻找线索、追问原因的全过程。</p>
+      <div class="hero-kicker">商 鞅 变 法 · 三 文 本 对 读</div>
+      <p class="hero-sub">同一场变法，三部史书，<b>三种写法</b>。<br>我把《史记》《汉书》《资治通鉴》里写商鞅的段落并排放在一起读，<b>同一件事得出了完全不同的讲法</b>——三列原文、几处追问，和一段我自己的判断。</p>
       <div class="hero-books">《史记》<i>·</i>《汉书》<i>·</i>《资治通鉴》</div>
       <div class="hero-meta">
-        <span class="seal">求真</span>
+        <span class="seal">对读</span>
         <span class="hero-note">读史之要，不在信一家之言，<br>而在观三家之异。</span>
       </div>
     </div>
@@ -410,8 +457,9 @@ footer .fseal{color:var(--cinnabar);font-family:var(--font-kai);letter-spacing:.
     <span class="nav-brand">三史读商君</span>
     <a href="#yuanqi">卷壹 · 缘起</a>
     <a href="#books">卷贰 · 三书</a>
-    <a href="#findings">卷叁 · 发现</a>
-    <a href="#method">卷肆 · 方法</a>
+    <a href="#duilv">卷叁 · 三列对读</a>
+    <a href="#panduan">卷肆 · 我的判断</a>
+    <a href="#more">卷伍 · 延伸</a>
     <a href="#end">卷末 · 结语</a>
   </div>
 </nav>
@@ -428,12 +476,12 @@ footer .fseal{color:var(--cinnabar);font-family:var(--font-kai);letter-spacing:.
       有的条目此选彼弃，同一故事竟得<b>截然不同之结论</b>。
       试一步一步去想：为什么司马光这样说？为什么司马迁这样说？《汉书》的记载为什么又如此不同？」
     </p>
-    <p class="explain">于是有了这一次阅读。我不急于评判商鞅的功过，而是先把三部书各自「怎么讲商鞅」摆上桌面，看它们<b>选了什么、丢了什么、下了什么断语</b>。</p>
+    <p class="explain">于是有了这一次对读。我不急于评判商鞅的功过，而是先把三部书各自「怎么讲商鞅变法」摆上桌面：看它们<b>选了什么、删了什么、下了什么断语</b>——差异之处，正是线索所在。</p>
     <div class="tasks">
-      <span class="task">壹 · 通读三书中商鞅部分</span>
-      <span class="task">贰 · 寻线索 · 列条目</span>
-      <span class="task">叁 · 对照其取舍与评断</span>
-      <span class="task">肆 · 批判性思考「为何不同」</span>
+      <span class="task">壹 · 三列原文并排</span>
+      <span class="task">贰 · 逐处标注差异</span>
+      <span class="task">叁 · 提出引导问题</span>
+      <span class="task">肆 · 写下我的判断</span>
     </div>
   </div>
 </section>
@@ -448,133 +496,139 @@ footer .fseal{color:var(--cinnabar);font-family:var(--font-kai);letter-spacing:.
       <h3>《史记》</h3>
       <div class="author">司马迁 · 西汉 · 约前91年成书</div>
       <span class="genre">纪传体通史</span>
-      <p>为商鞅立<b>专传</b>——《商君列传》两千余言。出身、进身、变法、身死，一人一生首尾俱足，篇末更直下人格判词，把商鞅当作<b>一个「人」</b>来塑造与评断。</p>
+      <p>为商鞅立<b>专传</b>——《商君列传》。出身、进身、变法、身死，一人一生首尾俱足，篇末更直下人格判词，把商鞅当作<b>一个「人」</b>来塑造与评断。</p>
     </div>
     <div class="book reveal">
       <h3>《汉书》</h3>
       <div class="author">班固 · 东汉 · 约公元82年成书</div>
       <span class="genre">纪传体断代史</span>
-      <p><b>不为商鞅立传</b>。其事散入《食货志》《刑法志》《艺文志》诸志：《食货志》记「坏井田，开阡陌」，《刑法志》记严刑连坐，《艺文志》录《商君》二十九篇入法家——商鞅被当作<b>一整套「制度」</b>来安置。</p>
+      <p><b>不为商鞅立传</b>。《食货志上》以数十字概述商君变法：既记富强之效，也记贫富之果——商鞅被当作<b>一整套「制度」</b>来安置与权衡。</p>
     </div>
     <div class="book reveal">
       <h3>《资治通鉴》</h3>
       <div class="author">司马光 · 北宋 · 1084年成书</div>
       <span class="genre">编年体通史</span>
-      <p>以年为纲，<b>节录</b>商鞅事迹（约当周显王八年至三十一年）。存变法、徙木、强秦、身死之主干，削对话与细节之枝蔓，几乎不下断语——商鞅被当作<b>一件「事」</b>来取舍，为治国者留镜鉴。</p>
+      <p>以年为纲<b>节录</b>商鞅事迹（周显王八年至三十一年）。存变法、徙木、强秦之主干，删细节、削断语——商鞅被当作<b>一件「事」</b>来取舍，为治国者留镜鉴。</p>
     </div>
   </div>
-  <p class="books-note reveal">同为西汉以降的史学名著，一位史家写「<b>人</b>」，一位史官写「<b>法</b>」，一位宰臣写「<b>事</b>」——取景框自一开始就不同。</p>
+  <p class="books-note reveal">一位史家写「<b>人</b>」，一位史官写「<b>法</b>」，一位宰臣写「<b>事</b>」——取景框自一开始就不同。</p>
 </section>
 
-<!-- ================= 卷叁 发现 ================= -->
-<section class="scroll-section" id="findings">
+<!-- ================= 卷叁 三列对读 ================= -->
+<section class="scroll-section" id="duilv">
   <div class="juan-tag reveal">
-    <span class="no">卷叁</span><span class="name">对照发现</span><span class="line"></span>
+    <span class="no">卷叁</span><span class="name">三列对读</span><span class="line"></span>
   </div>
+  <p class="duilv-intro reveal">
+    下面三段原文，同指<b>「商鞅变法及其成效」</b>这一件事。朱色标出的是各家的<b>关键措辞</b>：
+    同一段徙木，一段有「以明不欺」、一段没有；同一场成效，一处写「家给人足」、一处只写「道不拾遗」；
+    同一句田制，一作「坏井田，开仟伯」、一作「废井田，开阡陌」。请逐字看——<b>差异都藏在字缝里</b>。
+  </p>
+  <div class="duilv">
+    <div class="lv shi reveal">
+      <div class="lv-src">
+        <h4>《史记 · 商君列传》</h4>
+        <div class="src-detail">司马迁 · 西汉 · 纪传体 · 专传</div>
+      </div>
+      <div class="yuanwen">
+        「令民为什伍，而相牧司连坐。不告奸者腰斩，告奸者与斩敌首同赏，匿奸者与降敌同罚。……有军功者，各以率受上爵。……令既具，未布，恐民之不信，已乃立三丈之木于国都市南门，募民有能徙置北门者予十金。民怪之，莫敢徙。复曰『能徙者予五十金』。有一人徙之，辄予五十金，<span class="zhu">以明不欺</span>。卒下令。……行之十年，<span class="zhu">秦民大说</span>，道不拾遗，山无盗贼，<span class="zhu">家给人足</span>。民勇于公战，怯于私斗，乡邑大治。」
+      </div>
+      <div class="lv-note"><b>又</b> 篇末太史公曰：「商君，其<span class="zhu">天资刻薄</span>人也。……不师赵良之言，亦足发明商君之<span class="zhu">少恩</span>矣。……卒受恶名于秦，有以也夫！」</div>
+      <div class="wenti">
+        <span class="wt-tag">思考</span>
+        <ol>
+          <li>同一篇传里，成效写得毫无保留，篇末却吝啬得不给一个好字——太史公评的到底是「法」还是「人」？</li>
+          <li>「以明不欺」是司马迁替徙木下的结论：他为什么非要替商鞅把这四个字<b>说破</b>？</li>
+        </ol>
+      </div>
+    </div>
 
-  <!-- 发现一 -->
-  <div class="finding reveal">
-    <div class="finding-head">
-      <span class="finding-no">发现一</span>
-      <span class="finding-title">「有传」与「无传」</span>
-      <span class="finding-sub">—— 同一个人，被安放在完全不同的位置上</span>
+    <div class="lv han reveal">
+      <div class="lv-src">
+        <h4>《汉书 · 食货志上》</h4>
+        <div class="src-detail">班固 · 东汉 · 断代史 · 散入志</div>
+      </div>
+      <div class="yuanwen">
+        「及秦孝公用商君，<span class="zhu">坏井田</span>，<span class="zhu">开仟伯</span>，急耕战之赏，<span class="zhu">虽非古道</span>，<span class="zhu">犹以务本之故</span>，倾邻国而雄诸侯。<span class="zhu">然</span>王制遂灭，僭差亡度。庶人之富者<span class="zhu">累巨万</span>，而贫者<span class="zhu">食糟糠</span>；有国强者兼州域，而弱者丧社稷。」
+      </div>
+      <div class="lv-note"><b>注</b> 仟伯，即「阡陌」；此段无传，商鞅之事被打散进经济制度史里。</div>
+      <div class="wenti">
+        <span class="wt-tag">思考</span>
+        <ol>
+          <li>「虽非古道，犹以务本之故」——「虽……犹……」这两个虚词里，班固让了哪一步、又守住了什么？随后一个「然」字把话锋转回「王制遂灭」，他到底站在哪一边？</li>
+          <li>「倾邻国而雄诸侯」与「富者累巨万，贫者食糟糠」写在同一段——富强与民瘼，是同一本账上的两行，还是两本账？</li>
+        </ol>
+      </div>
     </div>
-    <div class="table-wrap">
-    <table class="duizhao">
-      <tr><th>书</th><th>商鞅被写成了什么</th><th>代价与收获</th></tr>
-      <tr>
-        <td>《史记》</td>
-        <td><b>活生生的人</b>：专传一篇，性格、谋略、得意与败亡俱全，连「刻薄少恩」的评语都直书篇末。</td>
-        <td>得到血肉与戏剧性，也被作者的人格判断<b>定了调</b>。</td>
-      </tr>
-      <tr>
-        <td>《汉书》</td>
-        <td><b>制度的化身</b>：无传，散见于食货（田制）、刑法（刑罚）、艺文（法家典籍）诸志。</td>
-        <td>避开了对人品的纠缠，却也让读者<b>看不见那个具体的人</b>。</td>
-      </tr>
-      <tr>
-        <td>《资治通鉴》</td>
-        <td><b>编年线上的事件</b>：变法——强秦——身死，按年份排布，细节大幅删削。</td>
-        <td>脉络最清晰，但人物内心与对话的张力<b>几近磨平</b>。</td>
-      </tr>
-    </table>
+
+    <div class="lv tong reveal">
+      <div class="lv-src">
+        <h4>《资治通鉴 · 卷第二》</h4>
+        <div class="src-detail">司马光 · 北宋 · 编年体 · 节录</div>
+      </div>
+      <div class="yuanwen">
+        「十年，卫鞅欲变法，秦人不悦。卫鞅言于秦孝公曰：『夫民不可与虑始，而可与乐成。论至德者不和于俗，成大功者不谋于众。是以圣人苟可以强国，不法其故。』……公曰：『善。』以卫鞅为左庶长。……令既具未布，恐民之不信，乃立三丈之木于国都市南门，募民有能徙置北门者予十金。民怪之，莫敢徙。复曰：『能徙者予五十金！』有一人徙之，辄予五十金。<span class="zhu">乃下令</span>。……行之十年，<span class="zhu">秦国</span>道不拾遗，山无盗贼，民勇于公战，怯于私斗，乡邑大治。……<span class="zhu">废井田，开阡陌</span>。」
+      </div>
+      <div class="lv-note"><b>按</b> 通鉴通篇几乎不下断语，褒贬藏于取舍。</div>
+      <div class="wenti">
+        <span class="wt-tag">思考</span>
+        <ol>
+          <li>对照《史记》徙木段：通鉴删掉了「以明不欺」四个字，只写「乃下令」——少这四个字，徙木故事的重心变了什么？</li>
+          <li>《史记》写「秦民大说……家给人足」，通鉴只写「秦国道不拾遗」——民之「说」与「足」被删去，是省笔，还是取舍？</li>
+        </ol>
+      </div>
     </div>
-    <div class="xiaojie">小 结 —— 体裁先于观点：史家选择<b>怎样的容器</b>，就已经决定了商鞅在其中<b>以怎样的面目出现</b>。</div>
   </div>
+  <p class="duilv-key reveal">三列并置可见：徙木立信、变法令、成效、田制，四件实事三家都写——<b>写法与评断，各不相同</b>。</p>
+</section>
 
-  <!-- 发现二 -->
-  <div class="finding reveal">
-    <div class="finding-head">
-      <span class="finding-no">发现二</span>
-      <span class="finding-title">评语的坐标不同</span>
-      <span class="finding-sub">—— 道德 · 制度 · 治术，三把不一样的尺子</span>
-    </div>
-    <div class="tribox">
-      <div class="cell shi">
-        <h4>司马迁 <span>道德的坐标</span></h4>
-        <p>以<b>人品</b>定基调：「商君，其<b>天资刻薄</b>人也」「卒受恶名于秦，有以也夫」。惋惜其才，厌恶其行——这是把成败归因于<b>性格</b>的读法。</p>
-      </div>
-      <div class="cell han">
-        <h4>班固 <span>制度的坐标</span></h4>
-        <p><b>功过并陈</b>：《食货志》既承认「虽非古道，犹以务本之故，倾邻国而雄诸侯」，随即又叹「然王制遂灭，僭差亡度」；《刑法志》斥其「连相坐之法，造参夷之诛」。实效与代价，两笔并书。</p>
-      </div>
-      <div class="cell tong">
-        <h4>司马光 <span>治术的坐标</span></h4>
-        <p><b>寓评于选</b>：通鉴几乎不作断语，却刻意保留「民不可与虑始，而可与乐成」与徙木立信——为君主保存「<b>立信而后行法</b>」的镜鉴。褒贬，藏进了取舍。</p>
-      </div>
-    </div>
-    <div class="xiaojie">小 结 —— 同一段历史，一位问「<b>他是怎样的人</b>」，一位问「<b>这套制度利弊几何</b>」，一位问「<b>治国者当学什么</b>」。坐标不同，结论自然不同。</div>
+<!-- ================= 卷肆 我的判断 ================= -->
+<section class="scroll-section" id="panduan">
+  <div class="juan-tag reveal">
+    <span class="no">卷肆</span><span class="name">我的判断</span><span class="line"></span>
   </div>
-
-  <!-- 发现三 -->
-  <div class="finding reveal">
-    <div class="finding-head">
-      <span class="finding-no">发现三</span>
-      <span class="finding-title">同一件事，三种讲法</span>
-      <span class="finding-sub">—— 以「商鞅之死」为例</span>
-    </div>
-    <div class="quote">
-      <p>「商君之法，舍人无验者坐之。」——于是商君喟然叹曰：<br>「嗟乎，为法之敝一至此哉！」</p>
-      <span class="src">——《史记·商君列传》· 逃亡客舍一段</span>
-    </div>
-    <div class="tribox">
-      <div class="cell shi">
-        <h4>《史记》讲成 <span>宿命剧</span></h4>
-        <p>逃亡夜投客舍，被自己立的法挡在门外——「作法自毙」。<b>戏剧性、循环报应的宿命感</b>：法之严酷，反噬其立法者。这是全传最动人的一笔。</p>
-      </div>
-      <div class="cell han">
-        <h4>《汉书》讲成 <span>制度注脚</span></h4>
-        <p>不演这出戏。商鞅之死只是「秦政刻暴」的一条<b>论据</b>，被安放进「秦所以失天下」的大叙述里——个人结局无足轻重，<b>制度批判</b>才是正题。</p>
-      </div>
-      <div class="cell tong">
-        <h4>《资治通鉴》讲成 <span>政治镜鉴</span></h4>
-        <p>删去客舍感叹等细节，只留事件骨架：告反——出逃——兵败——车裂。死不再是报应，而是<b>权力斗争的必然结局</b>，供后来的执政者引以为鉴。</p>
-      </div>
-    </div>
-    <div class="xiaojie">小 结 —— 事件相同，讲法不同，结论便不同。<b>不是谁记错了，而是各自的取景框不同</b>。引赵良谏语互证：「恃德者昌，恃力者亡」——《史记》存之以为讽，《通鉴》于取舍之间自有斟酌。<span class="pizhu">异辞之处，正是线索所在</span></div>
+  <div class="panduan-wrap reveal">
+    <p class="panduan-text">
+      对读之后我最确定的一点是：三本书没有谁在反驳谁，它们<b>各记各的账</b>。食货志前脚承认「倾邻国而雄诸侯」，后脚就叹「王制遂灭」，我起初以为矛盾，后来想明白<span class="u">这根本不是一回事</span>——富强一本账，礼崩一本账，班固两本都记，从没打算拿一本去抵另一本，「富者累巨万，贫者食糟糠」就是他另起的一行。通鉴最像在<span class="u">替帝王划重点</span>：它删尽细节与断语，却把徙木立信完整留下，连《史记》里「以明不欺」的结论都去掉，只留「乃下令」——把行为摆出来，让读的人自己掂量「信」的分量，这更像给皇帝划的考点，而不是替商鞅说话。太史公正相反：成效写得越漂亮，「天资刻薄」就落得越重——他不是没看见功，是不肯让功抵过。所以同一件变法，《史记》在问人，《汉书》在问制度，《通鉴》在问治术；<b>商鞅是谁，取决于你翻史书是想回答什么问题</b>。
+    </p>
+    <p class="panduan-aside">※ 本段为对读三列原文后由本人提出的判断；「两本账」「替帝王划重点」两处係本人阅读时的直接感受，其余为对照文本后的展开。</p>
   </div>
 </section>
 
-<!-- ================= 卷肆 方法 ================= -->
-<section class="scroll-section" id="method">
+<!-- ================= 卷伍 延伸 ================= -->
+<section class="scroll-section" id="more">
   <div class="juan-tag reveal">
-    <span class="no">卷肆</span><span class="name">我的三步对照法</span><span class="line"></span>
+    <span class="no">卷伍</span><span class="name">延伸发现与方法</span><span class="line"></span>
+  </div>
+  <div class="findings-mini">
+    <div class="fmini reveal">
+      <h4><span>发现一</span>有传与无传</h4>
+      <p>《史记》给商鞅立专传、写成「人」；《汉书》不立传，把人打散进食货、刑法诸志，写成「制度」；《通鉴》编年节录，写成「事件」。<b>体裁先于观点</b>：选怎样的容器，人就以怎样的面目出现。</p>
+    </div>
+    <div class="fmini reveal">
+      <h4><span>发现二</span>评语的坐标</h4>
+      <p>司马迁用<b>道德</b>之尺（「天资刻薄」），班固用<b>制度</b>之尺（功过并陈），司马光用<b>治术</b>之尺（寓评于选）。坐标不同，同一个商鞅便有了三种结论。</p>
+    </div>
+    <div class="fmini reveal">
+      <h4><span>发现三</span>同事件异讲法</h4>
+      <p>以「商鞅之死」为例：《史记》讲成「作法自毙」的宿命剧；《汉书》当作秦政刻暴的注脚；《通鉴》删去感叹、只留事件骨架，讲成政治镜鉴。<b>不是谁记错，而是取景框不同</b>。</p>
+    </div>
   </div>
   <div class="steps">
     <div class="step reveal">
       <span class="num">壹</span>
       <h4>列条目</h4>
-      <p>把三部书中商鞅相关条目抄成一张长单：入秦说君、徙木立信、变法之辩、刑太子师傅、赵良之谏、身死族灭……先看见「材料池」里有什么。</p>
+      <p>把三部书中商鞅相关条目抄成长单：入秦、徙木、变法令、刑太子师、赵良之谏、身死……先看见材料池里有什么。</p>
     </div>
     <div class="step reveal">
       <span class="num">贰</span>
       <h4>标异同</h4>
-      <p>将条目左右并置，逐条标注「详 / 略 / 无」，再核对引文出入。哪些故事三部皆有？哪些此有彼无？差异本身就是史料留下的线索。</p>
+      <p>三列并置，逐字标注「详 / 略 / 无」与措辞出入（如「坏井田」与「废井田」）——差异本身就是史料留下的线索。</p>
     </div>
     <div class="step reveal">
       <span class="num">叁</span>
       <h4>问为什么</h4>
-      <p>把差异放回作者身上：他是谁（刑余史家 / 兰台史官 / 宰臣）？身处什么时代？写给谁看？——答案渐渐从文本浮出：写作意图与体裁，共同塑造了记载。</p>
+      <p>把差异放回作者：他是谁？身处什么时代？写给谁看？——写作意图与体裁，共同塑造了记载。</p>
     </div>
   </div>
 </section>
@@ -588,18 +642,17 @@ footer .fseal{color:var(--cinnabar);font-family:var(--font-kai);letter-spacing:.
     <div class="line1">史书不是镜子，<br>是<b>取景框</b>。</div>
     <div class="line2">读史之要 · 不在信一家之言 · 而在观三家之异</div>
     <div class="verify">
-      <b>按</b>：本页所录引文均凭记忆誊录，个别用字或与通行点校本略有出入。
-      凡引用处，请务必<b>回到《史记》《汉书》《资治通鉴》原书核对原文</b>——
-      这一步「核验」，正是批判性阅读的最后一环，也是本页方法论的一部分。
+      <b>按</b>：本页三列引文已据维基文库《史记·卷六十八》《汉书·卷二十四上》《资治通鉴（胡三省音注）·卷第二》逐字核对，简体用字从通行简体排印本，删去胡三省注；引文中「……」为节略。
+      仍建议回检中华书局点校本原文——这一步「核验」，正是批判性阅读的最后一环。
     </div>
     <div class="refs reveal">
       <span class="rt">参 考 书 目</span>
-      〔西汉〕司马迁《史记》（中华书局点校本）·〔东汉〕班固《汉书》（中华书局点校本）·〔北宋〕司马光《资治通鉴》（中华书局点校本）· 相关商鞅部分条目对照
+      〔西汉〕司马迁《史记·商君列传》·〔东汉〕班固《汉书·食货志上》·〔北宋〕司马光《资治通鉴·卷第二》（胡三省音注）· 均见维基文库；对照阅读时参考中华书局点校本
     </div>
   </div>
   <footer>
     <span class="fseal">卷 终</span>
-    对照阅读学习成果 · 史料对照：《史记》《汉书》《资治通鉴》中之商鞅
+    商鞅变法三文本对读 · 《史记》《汉书》《资治通鉴》
   </footer>
 </section>
 
