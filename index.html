@@ -5,22 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>三史读商君 · 商鞅变法三文本对读</title>
 <meta name="description" content="《史记·商君列传》《汉书·食货志》《资治通鉴》中商鞅变法记载的三列对读：原文摘录、引导思考问题与我的判断。">
-<meta name="theme-color" content="#f7f4ec">
+<meta name="theme-color" content="#100e0b">
 <style>
 :root{
-  --paper:#f7f4ec;
-  --paper-deep:#efeadd;
-  --ink:#1c1a15;
-  --ink-2:#4a4437;
-  --ink-3:#6e6450;
-  --hair:#d9d2c0;
-  --hair-2:#c4bba4;
-  --zhu:#a63a2b;
-  --zhu-deep:#8a2f22;
+  color-scheme:dark;
+  --bg:#100e0b;
+  --bg-2:#15120d;
+  --panel:#1a160f;
+  --panel-2:#1f1a11;
+  --hair:rgba(203,169,99,.26);
+  --hair-2:rgba(203,169,99,.45);
+  --gold:#c9a75e;
+  --gold-hi:#e6cf94;
+  --gold-dim:#8f773f;
+  --txt:#eae2cd;
+  --txt-2:#bdb297;
+  --txt-3:#93876c;
+  --zhu:#d4634a;
+  --zhu-deep:#a63a2b;
   --font-song:"Noto Serif SC","Songti SC","STSong","SimSun","宋体",serif;
   --font-kai:"KaiTi","STKaiti","楷体","Kaiti SC",serif;
   --font-fang:"FangSong","STFangsong","仿宋",serif;
-  --font-hei:"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -29,30 +34,43 @@ html{scroll-behavior:smooth}
 }
 body{
   font-family:var(--font-song);
-  color:var(--ink);
-  background:var(--paper);
+  color:var(--txt);
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(ellipse 90% 46% at 50% -8%, rgba(201,167,94,.075), transparent 62%),
+    radial-gradient(ellipse 55% 38% at 88% 108%, rgba(201,167,94,.045), transparent 64%),
+    repeating-linear-gradient(0deg, rgba(230,207,148,.012) 0 1px, transparent 1px 3px);
   line-height:2;
   font-size:15px;
   overflow-x:hidden;
 }
-::selection{background:rgba(166,58,43,.15)}
+::selection{background:rgba(201,167,94,.25)}
 .wrap{width:min(1060px,90vw);margin:0 auto}
 
 /* ---------- 书眉 ---------- */
 .masthead{
-  border-top:3px solid var(--ink);
-  border-bottom:1px solid var(--ink);
+  border-top:1px solid var(--hair-2);
+  border-bottom:1px solid var(--hair-2);
+  background:linear-gradient(180deg, rgba(201,167,94,.05), transparent 70%);
 }
 .masthead-inner{
   display:flex;justify-content:space-between;align-items:baseline;
-  padding:10px 0;gap:12px;flex-wrap:wrap;
+  padding:11px 0;gap:12px;flex-wrap:wrap;
 }
-.masthead .m-left{font-family:var(--font-fang);font-size:13px;letter-spacing:.32em;color:var(--ink)}
-.masthead .m-right{font-family:var(--font-fang);font-size:12px;letter-spacing:.18em;color:var(--ink-3)}
+.masthead .m-left{font-family:var(--font-fang);font-size:13px;letter-spacing:.34em;color:var(--gold)}
+.masthead .m-right{font-family:var(--font-fang);font-size:12px;letter-spacing:.16em;color:var(--txt-3)}
 
 /* ---------- 卷首 ---------- */
-.hero{padding:72px 0 56px;border-bottom:1px solid var(--ink)}
-.hero-grid{display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:end}
+.hero{position:relative;padding:76px 0 58px;border-bottom:1px solid var(--hair-2);overflow:hidden}
+.hero-wm{
+  position:absolute;right:-40px;bottom:-110px;
+  font-family:var(--font-kai);font-weight:700;
+  font-size:clamp(280px,38vw,460px);line-height:1;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(201,167,94,.09);
+  pointer-events:none;user-select:none;
+}
+.hero-grid{position:relative;display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:end}
 .hero h1{
   font-family:var(--font-kai);
   font-weight:700;
@@ -60,15 +78,18 @@ body{
   line-height:1.22;
   letter-spacing:.06em;
   text-wrap:balance;
+  color:var(--gold-hi);
+  text-shadow:0 2px 24px rgba(201,167,94,.14);
 }
 .hero .hero-lede{
   margin-top:26px;max-width:560px;
-  font-size:clamp(15px,1.8vw,17px);color:var(--ink-2);
+  font-size:clamp(15px,1.8vw,17px);color:var(--txt-2);
   text-wrap:pretty;
 }
 .hero .hero-lede b{color:var(--zhu);font-weight:700}
 .colophon{
-  border:1px solid var(--ink);
+  border:1px solid var(--hair-2);
+  background:linear-gradient(180deg, var(--panel-2), var(--panel));
   font-size:13px;
 }
 .colophon .c-row{
@@ -76,58 +97,59 @@ body{
   padding:9px 14px;border-bottom:1px solid var(--hair);
 }
 .colophon .c-row:last-child{border-bottom:none}
-.colophon .c-k{font-family:var(--font-fang);color:var(--ink-3);letter-spacing:.1em;white-space:nowrap}
-.colophon .c-v{color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
+.colophon .c-k{font-family:var(--font-fang);color:var(--gold);letter-spacing:.1em;white-space:nowrap}
+.colophon .c-v{color:var(--txt);text-align:right;font-variant-numeric:tabular-nums}
 .hero-books{
-  margin-top:34px;padding-top:18px;border-top:1px solid var(--hair-2);
-  display:flex;gap:28px;flex-wrap:wrap;
-  font-family:var(--font-kai);font-size:16px;color:var(--ink);
+  position:relative;
+  margin-top:36px;padding-top:18px;border-top:1px solid var(--hair);
+  display:flex;gap:30px;flex-wrap:wrap;
+  font-family:var(--font-kai);font-size:16.5px;color:var(--gold-hi);
 }
-.hero-books span b{color:var(--zhu)}
-.hero-books span i{font-style:normal;font-family:var(--font-fang);font-size:12.5px;color:var(--ink-3);margin-left:8px;letter-spacing:.06em}
+.hero-books span i{font-style:normal;font-family:var(--font-fang);font-size:12.5px;color:var(--txt-3);margin-left:8px;letter-spacing:.06em}
 
 /* ---------- 卷目导航 ---------- */
 .nav{
   position:sticky;top:0;z-index:50;
-  background:var(--paper);
-  border-bottom:1px solid var(--ink);
-  box-shadow:0 1px 0 var(--paper);
+  background:rgba(16,14,11,.96);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--hair-2);
 }
 .nav-inner{
   width:min(1060px,90vw);margin:0 auto;
   display:flex;align-items:center;gap:4px;
   overflow-x:auto;white-space:nowrap;
-  padding:10px 0;
+  padding:11px 0;
   -webkit-overflow-scrolling:touch;
 }
-.nav-brand{font-family:var(--font-kai);font-weight:700;color:var(--ink);letter-spacing:.14em;margin-right:14px;font-size:15px;flex:none}
+.nav-brand{font-family:var(--font-kai);font-weight:700;color:var(--gold-hi);letter-spacing:.14em;margin-right:14px;font-size:15px;flex:none}
 .nav a{
-  color:var(--ink-2);text-decoration:none;
+  color:var(--txt-2);text-decoration:none;
   font-size:13.5px;letter-spacing:.12em;
   padding:3px 11px;flex:none;
   border-bottom:2px solid transparent;
   transition:border-color .2s ease,color .2s ease;
 }
-.nav a:hover{color:var(--zhu);border-bottom-color:var(--zhu)}
-.nav a:focus-visible{outline:2px solid var(--zhu);outline-offset:2px}
+.nav a:hover{color:var(--gold-hi);border-bottom-color:var(--gold)}
+.nav a:focus-visible{outline:1px solid var(--gold);outline-offset:2px}
 
 /* ---------- 通用卷章 ---------- */
-.scroll-section{padding:72px 0 26px;scroll-margin-top:64px}
+.scroll-section{padding:76px 0 26px;scroll-margin-top:64px}
 .sec-head{
   display:flex;align-items:baseline;gap:16px;
-  border-bottom:1px solid var(--ink);
-  padding-bottom:12px;margin-bottom:30px;
+  border-bottom:1px solid var(--hair-2);
+  padding-bottom:13px;margin-bottom:32px;
 }
 .sec-head .no{
-  font-family:var(--font-fang);font-size:13px;color:var(--zhu);
+  font-family:var(--font-fang);font-size:13px;color:var(--gold);
   letter-spacing:.28em;white-space:nowrap;
 }
 .sec-head h2{
   font-family:var(--font-kai);font-weight:700;
   font-size:clamp(24px,3.2vw,32px);letter-spacing:.1em;text-wrap:balance;
+  color:var(--gold-hi);
 }
 .sec-head .fill{flex:1}
-.sec-head .num{font-family:var(--font-fang);font-size:12px;color:var(--ink-3);letter-spacing:.14em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.sec-head .num{font-family:var(--font-fang);font-size:12px;color:var(--txt-3);letter-spacing:.14em;white-space:nowrap}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){
@@ -136,22 +158,23 @@ body{
 
 /* ---------- 凡例 ---------- */
 .fanli{
-  border-left:3px solid var(--ink);
-  padding:6px 0 6px 26px;
+  border-left:2px solid var(--gold);
+  padding:6px 0 6px 28px;
+  background:linear-gradient(90deg, rgba(201,167,94,.05), transparent 55%);
 }
-.fanli .fl-title{font-family:var(--font-kai);font-weight:700;font-size:16px;letter-spacing:.3em;margin-bottom:10px}
+.fanli .fl-title{font-family:var(--font-kai);font-weight:700;font-size:16px;letter-spacing:.3em;margin-bottom:10px;color:var(--gold-hi)}
 .fanli ol{list-style:none;counter-reset:fl}
 .fanli li{
   counter-increment:fl;
   font-family:var(--font-fang);
-  font-size:14.5px;color:var(--ink-2);
+  font-size:14.5px;color:var(--txt-2);
   line-height:2.15;
   position:relative;padding-left:2.4em;
 }
 .fanli li::before{
   content:"第" counter(fl,cjk-ideographic) "则";
   position:absolute;left:0;
-  color:var(--ink-3);letter-spacing:.08em;
+  color:var(--gold);letter-spacing:.08em;
 }
 .fanli li b{color:var(--zhu);font-weight:700}
 
@@ -160,79 +183,80 @@ body{
 table.jing{
   width:100%;border-collapse:collapse;
   font-size:14px;line-height:1.9;
+  font-variant-numeric:tabular-nums;
 }
 table.jing th,table.jing td{
-  border:1px solid var(--hair-2);
+  border:1px solid var(--hair);
   padding:11px 14px;text-align:left;vertical-align:top;
 }
 table.jing th{
   font-family:var(--font-kai);font-weight:700;
-  background:var(--ink);color:var(--paper);
+  background:var(--panel-2);color:var(--gold-hi);
   font-size:14px;letter-spacing:.1em;white-space:nowrap;
+  border-bottom:1px solid var(--hair-2);
 }
-table.jing td{color:var(--ink-2);text-wrap:pretty}
-table.jing td b{color:var(--ink)}
+table.jing td{color:var(--txt-2);text-wrap:pretty}
+table.jing td b{color:var(--gold-hi)}
 table.jing td:first-child{
-  font-family:var(--font-kai);font-weight:700;color:var(--ink);
+  font-family:var(--font-kai);font-weight:700;color:var(--gold-hi);
   white-space:nowrap;font-size:15px;
 }
-table.jing{font-variant-numeric:tabular-nums}
 .books-cap{
-  margin-top:12px;font-family:var(--font-fang);font-size:13px;color:var(--ink-3);letter-spacing:.06em;
+  margin-top:12px;font-family:var(--font-fang);font-size:13px;color:var(--txt-3);letter-spacing:.06em;
 }
 
 /* ---------- 三列对读 ---------- */
-.duilv-lede{font-size:15px;color:var(--ink-2);margin-bottom:30px;max-width:760px;text-wrap:pretty}
+.duilv-lede{font-size:15px;color:var(--txt-2);margin-bottom:30px;max-width:760px;text-wrap:pretty}
 .duilv-lede b{color:var(--zhu)}
 .duilv{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:0;
-  border:1px solid var(--ink);
+  border:1px solid var(--hair-2);
 }
-.lv{display:flex;flex-direction:column;border-right:1px solid var(--ink);min-width:0}
+.lv{display:flex;flex-direction:column;border-right:1px solid var(--hair-2);min-width:0;background:var(--bg-2)}
 .lv:last-child{border-right:none}
 .lv-head{
-  background:var(--ink);color:var(--paper);
-  padding:10px 16px 9px;
+  background:linear-gradient(180deg, var(--panel-2), var(--panel));
+  padding:11px 16px 10px;
+  border-bottom:1px solid var(--hair-2);
 }
-.lv-head h3{font-family:var(--font-kai);font-weight:700;font-size:17px;letter-spacing:.04em;line-height:1.5}
+.lv-head h3{font-family:var(--font-kai);font-weight:700;font-size:17px;letter-spacing:.04em;line-height:1.5;color:var(--gold-hi)}
 .lv-head .lv-detail{
-  font-family:var(--font-fang);font-size:11.5px;color:rgba(247,244,236,.72);
+  font-family:var(--font-fang);font-size:11.5px;color:var(--gold);
   letter-spacing:.12em;margin-top:2px;
 }
 .yuanwen{
   font-family:var(--font-kai);
   font-size:15px;
-  line-height:2.15;
+  line-height:2.2;
   letter-spacing:.02em;
   padding:18px 18px 14px;
-  color:var(--ink);
+  color:var(--txt);
   flex:1;
 }
 .yuanwen .zhu{color:var(--zhu);font-weight:700;border-bottom:1px dotted var(--zhu)}
 .lv-note{
   padding:0 18px 14px;
-  font-size:12.5px;color:var(--ink-3);line-height:1.95;
+  font-size:12.5px;color:var(--txt-3);line-height:1.95;
   font-family:var(--font-fang);
 }
 .lv-note .zhu{color:var(--zhu)}
 .wenti{
-  border-top:1px solid var(--ink);
+  border-top:1px solid var(--hair-2);
   padding:16px 18px 18px;
-  background:var(--paper-deep);
+  background:rgba(201,167,94,.04);
 }
 .wenti ol{list-style:none;counter-reset:wt}
 .wenti li{
   counter-increment:wt;
-  font-size:14px;color:var(--ink-2);
+  font-size:14px;color:var(--txt-2);
   line-height:2.05;
   margin-bottom:10px;
-  padding-left:0;
   text-wrap:pretty;
 }
 .wenti li:last-child{margin-bottom:0}
-.wenti li b{color:var(--ink);font-weight:700}
+.wenti li b{color:var(--gold-hi);font-weight:700}
 .wenti li::before{
   content:"问曰：";
   font-family:var(--font-kai);
@@ -240,60 +264,60 @@ table.jing{font-variant-numeric:tabular-nums}
 }
 .duilv-key{
   margin-top:14px;
-  font-family:var(--font-fang);font-size:13.5px;color:var(--ink-3);
+  font-family:var(--font-fang);font-size:13.5px;color:var(--txt-3);
   display:flex;gap:10px;align-items:baseline;
 }
-.duilv-key::before{content:"※";color:var(--zhu)}
-.duilv-key b{color:var(--ink)}
+.duilv-key::before{content:"※";color:var(--gold)}
+.duilv-key b{color:var(--gold-hi)}
 
 /* ---------- 校异一览 ---------- */
 table.xiaoyi{width:100%;border-collapse:collapse;font-size:13.5px;line-height:1.95;font-variant-numeric:tabular-nums}
 table.xiaoyi th,table.xiaoyi td{
-  border:1px solid var(--hair-2);
+  border:1px solid var(--hair);
   padding:10px 13px;text-align:left;vertical-align:top;
 }
 table.xiaoyi th{
   font-family:var(--font-kai);font-weight:700;
-  background:var(--paper-deep);color:var(--ink);
+  background:var(--panel-2);color:var(--gold-hi);
   letter-spacing:.08em;white-space:nowrap;font-size:14px;
+  border-bottom:1px solid var(--hair-2);
 }
 table.xiaoyi td:first-child{
-  font-family:var(--font-kai);font-weight:700;color:var(--ink);white-space:nowrap;
+  font-family:var(--font-kai);font-weight:700;color:var(--gold-hi);white-space:nowrap;
 }
-table.xiaoyi td{color:var(--ink-2);text-wrap:pretty}
+table.xiaoyi td{color:var(--txt-2);text-wrap:pretty}
 table.xiaoyi td .zhu{color:var(--zhu);font-weight:700}
-table.xiaoyi td .que{color:var(--ink-3)}
+table.xiaoyi td .que{color:var(--txt-3)}
 
 /* ---------- 识语（我的判断） ---------- */
 .shiyu{
   position:relative;
-  border:1px solid var(--ink);
-  background:var(--paper);
+  border:1px solid var(--hair-2);
+  background:linear-gradient(160deg, var(--panel-2), var(--bg-2) 70%);
   padding:34px 38px 30px 96px;
 }
 .shiyu .shiyu-seal{
   position:absolute;left:26px;top:34px;
   width:44px;height:44px;
-  background:var(--zhu);color:#f6efe2;
+  background:var(--zhu-deep);color:#f2e7d0;
   font-family:var(--font-kai);font-weight:700;font-size:21px;
   display:flex;align-items:center;justify-content:center;
   border-radius:2px;
   transform:rotate(-3deg);
-  letter-spacing:0;
-  box-shadow:none;
+  box-shadow:inset 0 0 0 1px rgba(242,231,208,.25);
 }
-.shiyu h3{font-family:var(--font-kai);font-weight:700;font-size:19px;letter-spacing:.22em;margin-bottom:14px}
+.shiyu h3{font-family:var(--font-kai);font-weight:700;font-size:19px;letter-spacing:.22em;margin-bottom:14px;color:var(--gold-hi)}
 .shiyu p{
   font-family:var(--font-kai);
   font-size:clamp(16px,2vw,18.5px);
   line-height:2.35;letter-spacing:.04em;
-  color:var(--ink);
+  color:var(--txt);
   text-wrap:pretty;
 }
 .shiyu p b{color:var(--zhu);font-weight:700}
 .shiyu .shiyu-aside{
   margin-top:16px;padding-top:12px;border-top:1px solid var(--hair);
-  font-size:12.5px;color:var(--ink-3);font-family:var(--font-fang);line-height:2;
+  font-size:12.5px;color:var(--txt-3);font-family:var(--font-fang);line-height:2;
 }
 
 /* ---------- 延伸与方法 ---------- */
@@ -305,28 +329,29 @@ table.xiaoyi td .que{color:var(--ink-3)}
   counter-increment:ex;
   border-top:1px solid var(--hair);
   padding:16px 0 14px 0;
-  font-size:14px;color:var(--ink-2);
+  font-size:14px;color:var(--txt-2);
   text-wrap:pretty;
 }
 .extend-list li:last-child{border-bottom:1px solid var(--hair)}
 .extend-list li::before{
   content:counter(ex,cjk-ideographic);
-  font-family:var(--font-kai);font-weight:700;color:var(--zhu);
+  font-family:var(--font-kai);font-weight:700;color:var(--gold);
   font-size:17px;margin-right:12px;
 }
-.extend-list li b{color:var(--ink)}
+.extend-list li b{color:var(--gold-hi)}
 .extend-title{
   font-family:var(--font-kai);font-weight:700;font-size:16px;
-  letter-spacing:.24em;margin-bottom:6px;color:var(--ink);
+  letter-spacing:.24em;margin-bottom:6px;color:var(--gold-hi);
 }
-.extend-sub{font-family:var(--font-fang);font-size:12.5px;color:var(--ink-3);letter-spacing:.1em;margin-bottom:10px}
+.extend-sub{font-family:var(--font-fang);font-size:12.5px;color:var(--txt-3);letter-spacing:.1em;margin-bottom:10px}
 
 /* ---------- 卷末 ---------- */
 .jinju{
-  border-top:1px solid var(--ink);
+  border-top:1px solid var(--hair-2);
   margin-top:10px;
-  padding:56px 0 8px;
+  padding:60px 0 8px;
   text-align:center;
+  position:relative;
 }
 .jinju .line1{
   font-family:var(--font-kai);
@@ -334,47 +359,51 @@ table.xiaoyi td .que{color:var(--ink-3)}
   font-size:clamp(26px,4.2vw,40px);
   letter-spacing:.14em;line-height:1.9;
   text-wrap:balance;
+  color:var(--gold-hi);
+  text-shadow:0 2px 22px rgba(201,167,94,.12);
 }
 .jinju .line1 b{color:var(--zhu)}
 .jinju .line2{
-  margin-top:14px;font-family:var(--font-fang);font-size:13.5px;color:var(--ink-3);letter-spacing:.24em;
+  margin-top:14px;font-family:var(--font-fang);font-size:13.5px;color:var(--txt-3);letter-spacing:.24em;
 }
 .verify{
   margin:40px auto 0;max-width:720px;
-  font-size:13px;color:var(--ink-2);
-  border:1px solid var(--hair-2);
-  border-left:3px solid var(--zhu);
+  font-size:13px;color:var(--txt-2);
+  border:1px solid var(--hair);
+  border-left:2px solid var(--gold);
   padding:14px 20px;
   line-height:2.05;
   text-align:left;
   font-family:var(--font-fang);
+  background:var(--bg-2);
 }
-.verify b{color:var(--zhu)}
+.verify b{color:var(--gold-hi)}
 .refs{
   margin:30px auto 0;max-width:720px;
-  font-size:12.5px;color:var(--ink-3);
+  font-size:12.5px;color:var(--txt-3);
   text-align:left;line-height:2.1;
   font-family:var(--font-fang);
 }
-.refs .rt{font-weight:700;color:var(--ink);letter-spacing:.2em;display:block;margin-bottom:4px;font-family:var(--font-kai);font-size:13.5px}
+.refs .rt{font-weight:700;color:var(--gold);letter-spacing:.2em;display:block;margin-bottom:4px;font-family:var(--font-kai);font-size:13.5px}
 footer{
   margin-top:64px;
-  border-top:3px solid var(--ink);
+  border-top:1px solid var(--hair-2);
   padding:16px 0 40px;
   display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
-  font-family:var(--font-fang);font-size:12px;color:var(--ink-3);letter-spacing:.14em;
+  font-family:var(--font-fang);font-size:12px;color:var(--txt-3);letter-spacing:.14em;
 }
 
 /* ---------- 响应式 ---------- */
 @media (max-width:880px){
-  .hero{padding:52px 0 44px}
+  .hero{padding:56px 0 44px}
   .hero-grid{grid-template-columns:1fr;gap:30px;align-items:start}
   .duilv{grid-template-columns:1fr}
-  .lv{border-right:none;border-bottom:1px solid var(--ink)}
+  .lv{border-right:none;border-bottom:1px solid var(--hair-2)}
   .lv:last-child{border-bottom:none}
   .extend-grid{grid-template-columns:1fr}
   .shiyu{padding:30px 24px 26px 24px}
   .shiyu .shiyu-seal{position:static;margin-bottom:14px;transform:rotate(-2deg)}
+  .hero-wm{right:-70px;bottom:-60px;opacity:.7}
 }
 </style>
 </head>
@@ -392,6 +421,7 @@ footer{
 
   <!-- ================= 卷首 ================= -->
   <header class="hero" id="top">
+    <div class="hero-wm" aria-hidden="true">商</div>
     <div class="hero-grid">
       <div>
         <h1>三史读商君</h1>
