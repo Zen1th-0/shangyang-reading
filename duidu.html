@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>商鞅变法三文本对读 · 微型网页</title>
+<style>
+  :root {
+    --ink: #2b2620;
+    --ink-light: #6b6154;
+    --paper: #f7f3ea;
+    --card: #fffdf8;
+    --seal: #a4342a;
+    --seal-soft: #f3e3e0;
+    --gold: #b8860b;
+    --line: #e3dbc9;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Songti SC", "SimSun", "Noto Serif SC", serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    padding-bottom: 60px;
+  }
+  header {
+    background: linear-gradient(160deg, #8c2f24, #a4342a 55%, #7a2820);
+    color: #f8ecd8;
+    text-align: center;
+    padding: 56px 20px 42px;
+    position: relative;
+  }
+  header::after {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: -1px; height: 18px;
+    background: var(--paper);
+    clip-path: polygon(0 100%, 100% 100%, 98% 0, 2% 0);
+  }
+  header .tag {
+    display: inline-block;
+    border: 1px solid rgba(248,236,216,.55);
+    padding: 2px 14px;
+    font-size: 13px;
+    letter-spacing: 6px;
+    margin-bottom: 18px;
+    border-radius: 2px;
+  }
+  header h1 {
+    font-size: 38px;
+    letter-spacing: 10px;
+    font-weight: 700;
+  }
+  header .sub {
+    margin-top: 14px;
+    font-size: 15px;
+    opacity: .85;
+    letter-spacing: 3px;
+  }
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .intro {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--seal);
+    border-radius: 4px;
+    padding: 22px 28px;
+    margin: 36px 0;
+    font-size: 15.5px;
+    color: var(--ink-light);
+  }
+  .intro strong { color: var(--seal); }
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    align-items: stretch;
+  }
+  @media (max-width: 900px) {
+    .columns { grid-template-columns: 1fr; }
+    header h1 { font-size: 28px; letter-spacing: 6px; }
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 10px rgba(60,45,20,.06);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px rgba(60,45,20,.12);
+  }
+  .card-head {
+    padding: 16px 20px;
+    color: #fdf6e9;
+    letter-spacing: 3px;
+  }
+  .card-head .src { font-size: 19px; font-weight: 700; }
+  .card-head .author { font-size: 12.5px; opacity: .8; margin-top: 4px; letter-spacing: 1px; }
+  .c1 .card-head { background: linear-gradient(135deg, #8c2f24, #a4342a); }
+  .c2 .card-head { background: linear-gradient(135deg, #6e5a1e, #8f7422); }
+  .c3 .card-head { background: linear-gradient(135deg, #2f4f5c, #3d6675); }
+  .card-body { padding: 20px 22px; flex: 1; }
+  .excerpt {
+    font-size: 15.5px;
+    text-align: justify;
+  }
+  .excerpt p { margin-bottom: 12px; text-indent: 2em; }
+  .excerpt .hl {
+    background: linear-gradient(transparent 62%, #f5d9a8 62%);
+    font-weight: 700;
+  }
+  .questions {
+    border-top: 1px dashed var(--line);
+    margin: 6px 22px 0;
+    padding: 16px 0 20px;
+  }
+  .questions .q-title {
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--seal);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .questions li {
+    list-style: none;
+    font-size: 14.5px;
+    color: var(--ink-light);
+    padding-left: 22px;
+    position: relative;
+    margin-bottom: 8px;
+  }
+  .questions li::before {
+    content: "问";
+    position: absolute; left: 0; top: 2px;
+    width: 16px; height: 16px;
+    font-size: 11px; line-height: 16px;
+    text-align: center;
+    color: #fff;
+    background: var(--seal);
+    border-radius: 3px;
+  }
+  section.judgment {
+    margin: 48px auto 0;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 34px 38px;
+    position: relative;
+  }
+  section.judgment::before {
+    content: "判";
+    position: absolute;
+    top: -18px; left: 30px;
+    width: 40px; height: 40px;
+    background: var(--seal);
+    color: #fdf6e9;
+    font-size: 20px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    letter-spacing: 0;
+  }
+  section.judgment h2 {
+    font-size: 22px;
+    letter-spacing: 6px;
+    margin: 8px 0 18px 54px;
+    color: var(--seal);
+  }
+  section.judgment .verdict {
+    font-size: 16.5px;
+    text-align: justify;
+  }
+  section.judgment .verdict p { margin-bottom: 14px; text-indent: 2em; }
+  section.judgment .newq {
+    background: var(--seal-soft);
+    border-radius: 4px;
+    padding: 16px 22px;
+    margin-top: 20px;
+    font-size: 15px;
+    color: #7a2a22;
+  }
+  section.judgment .newq strong { letter-spacing: 2px; }
+  footer {
+    text-align: center;
+    margin-top: 50px;
+    color: var(--ink-light);
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+  footer .seal-line {
+    display: inline-block;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="tag">三文本对读</div>
+  <h1>商鞅变法</h1>
+  <div class="sub">《史记·商君列传》 × 《汉书·食货志》 × 《资治通鉴》 —— 同一人物，三种书写</div>
+</header>
+
+<main>
+  <div class="intro">
+    <strong>对读说明：</strong>商鞅变法是战国最重要的改革之一，但后世史家在记述同一事件时，<strong>选材不同、重心不同、评价也不同</strong>。下面三列分别摘录三部史书中的原文片段，每列附有引导性问题，供同屏对照阅读——读的不仅是商鞅，更是"历史书写如何被时代塑造"。
+  </div>
+
+  <div class="columns">
+
+    <!-- 第一列：史记 -->
+    <div class="card c1">
+      <div class="card-head">
+        <div class="src">《史记 · 商君列传》</div>
+        <div class="author">西汉 · 司马迁（纪传体，以人物为中心）</div>
+      </div>
+      <div class="card-body">
+        <div class="excerpt">
+          <p>令民为什伍，而相牧司连坐。不告奸者腰斩，告奸者与斩敌首同赏，匿奸者与降敌同罚……有军功者，各以率受上爵……<span class="hl">宗室非有军功论，不得为属籍。</span></p>
+          <p>行之十年，秦民大说，<span class="hl">道不拾遗，山无盗贼，家给人足。</span>民勇于公战，怯于私斗，乡邑大治。</p>
+          <p>太史公曰：商君，其<span class="hl">天资刻薄</span>人也。……及得用，刑公子虔，欺魏将卬，不师赵良之言，亦足发明商君之少恩矣。余尝读商君《开塞》《耕战》书，与其人行事相类。<span class="hl">卒受恶名于秦，有以也夫！</span></p>
+        </div>
+      </div>
+      <ol class="questions">
+        <div class="q-title">引导思考</div>
+        <li>列传既写"家给人足、乡邑大治"的成效，又在论赞中判其"天资刻薄"——<strong>事功与评价为何背离</strong>？找出原文中与"刻薄少恩"这一判断形成张力的事实。</li>
+        <li>司马迁把笔墨集中在商鞅个人（刑公子虔、欺魏将卬），这种<strong>以人为纲</strong>的写法，会不会天然放大个人品行、压缩制度分析？</li>
+      </ol>
+    </div>
+
+    <!-- 第二列：汉书 -->
+    <div class="card c2">
+      <div class="card-head">
+        <div class="src">《汉书 · 食货志》</div>
+        <div class="author">东汉 · 班固（引董仲舒语，从经济制度着眼）</div>
+      </div>
+      <div class="card-body">
+        <div class="excerpt">
+          <p>至秦则不然，<span class="hl">用商鞅之法，改帝王之制，除井田，民得卖买。</span>富者田连阡陌，贫者无立锥之地。……</p>
+          <p>又颛川泽之利，管山林之饶。……邑有<strong>游敖之民</strong>，田有<span class="hl">兼并之党</span>，则民不安其居。……故贫民常衣牛马之衣，而食犬彘之食。</p>
+          <p>董仲舒说上曰：古者税民不过什一……至秦则不然，<span class="hl">用商鞅之法，力役三十倍于古，田租口赋盐铁之利二十倍于古</span>。……或耕豪民之田，见税什五。</p>
+        </div>
+      </div>
+      <ol class="questions">
+        <div class="q-title">引导思考</div>
+        <li>班固借董仲舒之口，几乎<strong>不谈变法"富国强兵"的成效</strong>，只谈土地兼并与贫富分化——选材上的这种"省略"说明了什么？</li>
+        <li>东汉面临豪强兼并的现实问题。《食货志》对商鞅的严厉批评，与班固<strong>所处的时代背景</strong>有何关联？</li>
+      </ol>
+    </div>
+
+    <!-- 第三列：资治通鉴 -->
+    <div class="card c3">
+      <div class="card-head">
+        <div class="src">《资治通鉴 · 周纪二》</div>
+        <div class="author">北宋 · 司马光（编年体，为帝王提供借鉴）</div>
+      </div>
+      <div class="card-body">
+        <div class="excerpt">
+          <p>卫鞅欲变法，秦孝公恐天下议己。卫鞅曰：<span class="hl">"疑行无名，疑事无功。且夫有高人之行者，固见非于世；有独知之虑者，必见骜于民。愚者暗于成事，智者见于未萌。民不可与虑始，而可与乐成。"</span></p>
+          <p>令既具，未布，恐民之不信，乃立三丈之木于国都市南门，募民有能徙置北门者予十金……<span class="hl">令行于民期年，秦民之国都言初令之不便者以千数。而后民莫敢议令。</span></p>
+          <p>太子犯法。卫鞅曰：<span class="hl">"法之不行，自上犯之。"</span>将法太子。太子，君嗣也，不可施刑，刑其傅公子虔，黥其师公孙贾。<strong>明日，秦人皆趋令。</strong></p>
+        </div>
+      </div>
+      <ol class="questions">
+        <div class="q-title">引导思考</div>
+        <li>司马光详细记下<span style="font-weight:700">徙木立信</span>与<strong>太子犯法</strong>两个场景，几乎不发表议论——编年体"述而不作"的写法，让读者把注意力放在了哪里？</li>
+        <li>司马光身处主张"祖宗之法不可变"的北宋变法争论中，他客观呈现商鞅"以刑立信"的过程，是否也暗含<strong>对法、对君主权力的态度</strong>？</li>
+      </ol>
+    </div>
+
+  </div>
+
+  <section class="judgment">
+    <h2>我的判断</h2>
+    <div class="verdict">
+      <p>对照三文本，我最大的感受是：<strong>三位史家写的都是商鞅，看到的却分别是"人"、"制度"与"法"</strong>。司马迁以人物为纲，抓住了商鞅少恩刻薄、树敌太深的个人性格，于是事功再大也难逃"恶名"的论断；班固关心的是土地与赋役，商鞅在他笔下被简化为"兼并之始"的制度符号；司马光则冷静记录徙木立信、刑太子师傅等场景，把评价的空间留给读者，也留给历史。</p>
+      <p>因此我判断：<strong>"刻薄少恩"与其说是商鞅的客观定性，不如说是儒家叙事立场对法家人物的一次系统性裁剪。</strong>三书态度的差异，与其说取决于商鞅做了什么，不如说取决于书写者站在什么时代、为什么人写作。由此又生出一个新问题：当我们今天只能通过这三部史书了解商鞅时，我们读到的究竟是真实的商鞅，还是三个时代的投影？</p>
+    </div>
+    <div class="newq">
+      <strong>延伸的新问题：</strong>如果出土文献（如睡虎地秦简）呈现的秦法与传世史书的描写不一致，我们应当优先修订对商鞅的判断，还是优先追问史书为何如此书写？
+    </div>
+  </section>
+
+  <footer>
+    <div class="seal-line">商鞅变法三文本对读 · 单文件 HTML 微型网页 · 2026</div>
+  </footer>
+</main>
+
+</body>
+</html>
